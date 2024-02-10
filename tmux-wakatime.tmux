@@ -14,8 +14,8 @@ set_tmux_option() {
 
 do_interpolation() {
   local string=$1
-  local ram_usage_interpolated=${string/$ram_usage_interpolation/$ram_usage}
-  echo $ram_usage_interpolated
+  local wakatime_usage_interpolation=${string/$wakatime_usage_interpolation/$wakatime_usage}
+  echo $wakatime_usage_interpolation
 }
 
 update_tmux_option() {
