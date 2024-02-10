@@ -23,7 +23,7 @@ main() {
     while true; do
         local wakatime_data=$(get_wakatime_data)
         local coding_time=$(extract_coding_time "$wakatime_data")
-        echo "Wakatime: $coding_time"
+        echo " $coding_time"
         sleep 1  # Sleep for 5 minutes (300 seconds)
     done
 }
