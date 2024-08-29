@@ -1,5 +1,9 @@
 # TMUX Wakatime
 
+This fork adds some better ux for when the cache is not available.
+
+---
+
 Shows [WakaTime](https://wakatime.com/) today statistics in the status line.
 
 ![tmux-wakatime](./assets/tmux-preview.png)
@@ -12,7 +16,7 @@ Shows [WakaTime](https://wakatime.com/) today statistics in the status line.
 ### With Tmux Plugin Manager
 Add the plugin in `.tmux.conf`:
 ```
-set -g @plugin 'wiscaksono/tmux-wakatime'
+set -g @plugin 'mattpetters/tmux-wakatime'
 ```
 Press `prefix + I` to fetch the plugin and source it. Done.
 
