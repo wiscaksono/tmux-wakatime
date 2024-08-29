@@ -8,7 +8,7 @@ get_api_key() {
 
 # Function to fetch data from Wakatime endpoint
 get_wakatime_data() {
-    curl -s "https://wakatime.com/api/v1/users/current/status_bar/today?$(get_api_key)"
+    curl -s "https://wakatime.com/api/v1/users/current/status_bar/today?api_key=$(get_api_key)"
 }
 
 # Function to extract the current coding time
