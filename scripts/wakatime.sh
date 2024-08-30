@@ -8,13 +8,13 @@ get_api_key() {
 
 # Function to fetch data from Wakatime endpoint
 get_wakatime_data() {
-    curl -s "https://wakatime.com/api/v1/users/current/status_bar/today?$(get_api_key)"
+    curl -s "https://wakatime.com/api/v1/users/current/status_bar/today?api_key=$(get_api_key)"
 }
 
 # Function to extract the current coding time
 extract_coding_time() {
     local data="$1"
-    local coding_time=$(echo "$data" | jq -r '.data.grand_total.text')
+    local coding_time=$(echo "$data" | jq -r '.data.grand_total.text // empty')
     echo "$coding_time"
 }
 
@@ -23,8 +23,12 @@ main() {
     while true; do
         local wakatime_data=$(get_wakatime_data)
         local coding_time=$(extract_coding_time "$wakatime_data")
-        echo " $coding_time"
-        sleep 1  # Sleep for 5 minutes (300 seconds)
+        if [ -n "$coding_time" ]; then
+            echo " $coding_time"
+        else
+          echo " None yet :)"
+        fi
+        sleep 300  # Sleep for 5 minutes (300 seconds)
     done
 }
 
